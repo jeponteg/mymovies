@@ -1,11 +1,12 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import { MovieContext } from '../context/MoviesProvider'
 import { UpcommingMovieContext } from '../context/UpcommingMovieProvider';
+import { TopRateMovieContext } from '../context/TopRateMovieProvider';
+import { useNowPlaying } from '../hooks/useNowPlaying';
 import { Text, View, FlatList, Dimensions, ScrollView } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import MoviePoster from '../components/MoviePoster';
 import HorizontalSlider from '../components/HorizontalSlider';
-import { TopRateMovieContext } from '../context/TopRateMovieProvider';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -14,6 +15,7 @@ const Home:FC = () => {
     const { popular } = useContext(MovieContext)
     const { upcomming } = useContext(UpcommingMovieContext)
     const { topRate } = useContext(TopRateMovieContext)
+    const { nowPlayingMovie } = useNowPlaying()
 
     useEffect(() => {
 
@@ -25,7 +27,7 @@ const Home:FC = () => {
                 
                 <View style={{height:440}} >
                     <Carousel
-                        data={popular}
+                        data={nowPlayingMovie}
                         renderItem={ ({ item }:any) =>  <MoviePoster movie={ item }/>} 
                         sliderWidth = {windowWidth}
                         itemWidth={300}
@@ -34,7 +36,7 @@ const Home:FC = () => {
 
                 <HorizontalSlider title='Populares' movies={popular} />
                 <HorizontalSlider title='Upcomming' movies={upcomming} />
-                <HorizontalSlider title='top Rate'  movies={topRate} />
+                <HorizontalSlider title='Top Rate'  movies={topRate} />
             </View>
         </ScrollView>
     )

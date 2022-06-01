@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getPopular } from "../api/getPopular"
+import { getPopular } from "../api/getMovies"
 import { Movie } from '../interfaces/moviesInterface'
 
 interface MovieState {

@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react'
-import { getTopRate } from '../api/getToRate'
-import { getUpComming } from '../api/getUpcomming'
+import { getTopRate } from "../api/getMovies"
 import { Movie } from '../interfaces/moviesInterface'
 
 interface MovieState {
