@@ -24,12 +24,10 @@ export const MoviesProvider = ({children}:any) => {
     }
 
     useEffect(() => {
-
         getPopular(1).then((resp) => {
             resp ? setlistMovies(resp.data.results): null
         })
-
-    },[])
+    },[state])
 
     return(
         <MovieContext.Provider

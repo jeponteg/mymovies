@@ -22,19 +22,18 @@ const styles = StyleSheet.create({
 })
 
 interface Props {
-    movie:Movie
+    movie:Movie,
+    height?: number,
+    width?:number
 }
 
-const MoviePoster = ({movie}:Props) => {
+const MoviePoster = ({movie, height=420, width=300 }:Props) => {
 
     const uri = `https://image.tmdb.org/t/p/w500${ movie.poster_path }`;
     
     return(
         
-        <View style={{
-            width:300,
-            height:420,
-        }}>
+        <View style={{ width,height, marginHorizontal:5 }}>
             <View style={styles.imageContainer}>
                 <Image 
                     source={{uri}}
