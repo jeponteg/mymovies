@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getPopular } from "../api/getPopular"
+import { getPopular } from "../api/getMovies"
 import { Movie } from '../interfaces/moviesInterface'
 
 interface MovieState {
@@ -24,12 +24,10 @@ export const MoviesProvider = ({children}:any) => {
     }
 
     useEffect(() => {
-
         getPopular(1).then((resp) => {
             resp ? setlistMovies(resp.data.results): null
         })
-
-    },[])
+    },[state])
 
     return(
         <MovieContext.Provider
