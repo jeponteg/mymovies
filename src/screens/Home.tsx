@@ -1,9 +1,9 @@
-import React, { FC, useContext, useEffect, useState } from 'react'
+import React, { FC, useContext } from 'react'
 import { MovieContext } from '../context/MoviesProvider'
 import { UpcommingMovieContext } from '../context/UpcommingMovieProvider';
 import { TopRateMovieContext } from '../context/TopRateMovieProvider';
 import { useNowPlaying } from '../hooks/useNowPlaying';
-import { Text, View, FlatList, Dimensions, ScrollView } from 'react-native';
+import { View, Dimensions, ScrollView } from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import MoviePoster from '../components/MoviePoster';
 import HorizontalSlider from '../components/HorizontalSlider';
@@ -16,10 +16,6 @@ const Home:FC = () => {
     const { upcomming } = useContext(UpcommingMovieContext)
     const { topRate } = useContext(TopRateMovieContext)
     const { nowPlayingMovie } = useNowPlaying()
-
-    useEffect(() => {
-
-    },[popular])
 
     return(
         <ScrollView>

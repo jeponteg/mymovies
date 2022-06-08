@@ -2,11 +2,11 @@ import React from "react";
 import { useNavigation } from '@react-navigation/native';
 import { DrawerContentScrollView } from '@react-navigation/drawer'
 import { Drawer } from 'react-native-paper'
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
     home: undefined;
-    news: undefined;
+    upcomming: undefined;
     popular:undefined
 };
 
@@ -24,8 +24,8 @@ const DrawerContent = () => {
                     onPress= { () => navigation.navigate('home')}
                 />
                 <Drawer.Item
-                    label="News"
-                    onPress= { () => navigation.navigate('news')}
+                    label="UpComming"
+                    onPress= { () => navigation.navigate('upcomming')}
                 />
                  <Drawer.Item
                     label="Popular"
